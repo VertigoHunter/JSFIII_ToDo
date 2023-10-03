@@ -10,15 +10,34 @@ function addTask()
 {
     const inputValue = document.getElementById('inputTask').value;
     let li = document.createElement('li');
+    let checkBox = document.createElement('input');
+    checkBox.type = "checkbox";
+    checkBox.value= 1;
+    checkBox.name="todo"
     let attachment = document.createTextNode(inputValue);
+    li.appendChild(checkBox);
     li.appendChild(attachment);
     document.getElementById('taskList').appendChild(li);
     taskCounter += 1;
     console.log(list);
     console.log(taskCounter);
     return false;
+
+    
 }
 
+function removeTask()
+{
+    //let oppCounter = taskCounter;
+
+    let elem = document.getElementById("taskList");
+    if (elem.hasChildNodes())
+    {
+        elem.removeChild(elem.children[0])
+    }
+    //elem.remove(); 
+    //document.getElementById('inputTask').click();
+}
 /*
 let removeButton = document.createElement("span");
 removeButton.addEventListener("click", removeTask()
